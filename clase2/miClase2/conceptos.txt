@@ -1,0 +1,32 @@
+node --watch path (este comando sirve para solucionar la actualizacion del codigo y que se reinicie automaticamente)
+
+Status Code:
+100-199: Respuestas informativas
+200-299: Respuestas satisfactorias
+300-399: Redirecciones
+400-499: Errores del cliente
+500-599: Errores del servidor
+
+nodemon es una dependencia npm que cumple la misma función que watch. Es muy configurable, permitiendo no solo estar atento a los ficheros js sino a todo tipo de archivo como por ej: json.
+Es mucho más potente, pero es un poco más lento y consume un poco más de memoria.
+
+npm instal -g nodemon  --> NO hacer la instalción de forma global.
+Es mejor instalarlo como una dependencia de desarrollo --> npm install nodemon -D
+Utilizar scripts de node es CLAVE y está super INFRAVALORADO
+
+Con npm run puedo saber los scripts que tengo disponibles y además usarlos..
+
+ npm run xxx
+
+ Qué es un buffer de datos en Node.js?
+ Es una clase global que la utilizan para trabajar con datos binarios
+
+HTTP Methods:
+
+HEAD: es como el GET pero no pide el body, solo trae los headers y suele hacerse para verificar si un user tiene permisos, ej: sus tokens, cookies, etc...
+
+OPTIONS: Es el que describe los recursos que se puede hacer en ese path. Este method suele ser generalmente el problema que tenemos con el CORS. Es lo que hace el navegador para hacer una peticion a un endpoint como para decirle quiero que me indiques con esta URL que quiero acceder cuales son los modos de comunicacion que tengo permitido con vos. El OPTIONS justamente es el que devuelve las cabeceras de CORS y le dice. Las comunicaciones que podemos tener estan limitadas porque CORS dice que por este dominio no está aceptado, por ej.
+
+POST: crear
+PUT: modificar en su totalidad un recurso
+PATCH: modificar parcialmente un recurso

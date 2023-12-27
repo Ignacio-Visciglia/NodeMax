@@ -1,0 +1,65 @@
+Qué es Node.js?
+Node.js es un entorno de ejecución de JavaScript de código abierto(no siempre lo fue - Open Source Foundation) y multiplataforma desarrollado en 2009 por Ryan Dahl. Es asíncrono y funciona con data in/out. Posee una arquitectura orientada a eventos(Event Loop). Utiliza el motor V8 de Google Chrome. Es rápido, escalable y fácil de desplegar.
+
+Qué quiere decir que esté orientado a eventos?
+Node.js posee un bucle en el que se procesan las solicitudes que le van llegando a medida que se generan eventos y tiene la capacidad de ir ejecutando estas tareas de forma asíncrona, sin bloquear el proceso (liberándolo), manejando todo esto en un solo thread (monohilo).
+
+Stack MERN?
+Mongo DB, Express, React, Node.js
+
+Qué significa LTS?
+Long-term support - Soporte a largo plazo. Versión estable.
+
+Qué significa REPL?
+Read, Eval, Print, Loop
+
+Sobre variables globales...
+Node.js es un entorno de ejecución totalmente diferente al de los navegadores, motivo por el cual no maneja las mismas variables globales. La variable global 'window' a la cual se puede acceder en navegadores, no existe en Node.js. Su equivalente sería la variable global 'global'. De todas maneras, hoy en día en JavaScript existe una variable global llamada globalThis que puede ser utilizada en cualquier tipo de entorno(recomendada). globalThis apunta a window en navegadores y a global en Node.js
+
+console es una propiedad más que pertenece a la variable global del entorno en que estemos y log sería el método que se llama.
+Igualmente sucede con otras propiedades como fetch, Promise, etc...
+
+Patrón de diseño módulo:
+Consiste en dividir nuestro código en ficheros y utilizar exports e imports para que el código se pueda reutilizar y esté mejor organizado.
+Este patrón tiene dos versiones, la clásica llamada CommonJS y ES Modules
+
+X.Z.Y --> SEMANTIC VERSIONING
+
+X la MAJOR y es cuando rompe la compatibilidad hacia atrás
+Y la MINOR y es cuando se añaden nuevas funcionalidades
+Z la PATCH y es cuando se arreglan bugs
+
+El caret ^ sirve para que instale nuevas versiones sin pasar a una nueva MAJOR pero es mejor no usarlo y utilizar la extension de VERSION LENS para que te avise si estás o no usando lo más actual, analizar y tomar la decisión
+
+
+IMPORTANTE:
+
+El map, el cual es un callback, no espera en secuencial a pesar de tener un await
+Probar este codigo en el archivo 11.ls-advanced:
+
+const filesPromises = files.map(async file => {
+        const filePath = path.join(folder, file)
+        let stats
+
+        console.log('---')
+        try{
+            stats = await fs.stat(filePath) // info del archivo
+            console.log('stats')
+        } catch {
+            console.error(`No se pudo leer el archivo ${filePath}`)
+            process.exit(1)
+        }
+
+        const isDirectory = stats.isDirectory()
+        const fileType = isDirectory ? 'd' : '-'
+        const fileSize = stats.size.toString()
+        const fileModified = stats.mtime.toLocaleString()
+
+        return `${fileType} ${file.padEnd(30)} ${fileSize.padStart(20)} ${fileModified}` 
+    })
+
+El mapeo ocurre en paralelo. No espera uno y luego va con el otro. Lo hace todo junto
+
+Para hacerlo secuencial en lugar de paralelo, deberíamos usar un FOR OF en lugar del MAP
+
+Los try catch siempre usarlo especificamente para cada cosa. Eso te da un control mucho más granular para manejar errores

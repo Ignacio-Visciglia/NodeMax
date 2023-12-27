@@ -1,0 +1,42 @@
+Git: Sistema de control de versiones
+
+git —version : Inicializa un repositorio local. Le puedo pasar como parámetro el nombre de una carpeta que quiero crear como repositorio y lo crea dentro del directorio actual de trabajo.)
+git config —global user.name “NAME” (sin el atributo, tira el valor actual)
+git config —global user.email “EMAIL” (sin el atributo, tira el valor actual)
+(No es necesario usar el —global)
+git config —list (se puede ver el usuario, el email y otros parámetros que dependerán de cada sistema operativo)
+
+git init
+git status
+git add <file>
+git add . (Agrega todos los archivos)
+git rm —cached <file> (Lleva el archivo del Staging Area al Working Directory nuevamente)
+git commit -m “Comentario del commit que se está realizando”
+git remote add origin URL
+git push -u origin master
+git pull
+git clone
+git log (podemos ver el historial de lo que ha pasado en el repository)
+git log —oneline (resumido en una linea por commit)
+git diff XXX.xxx
+.gitignore
+git branch XXX (crea una rama con el nombre XXX)
+git branch (si lo ponemos solo, nos muestra las ramas)
+git branch -I (verifica que se creo la rama)
+git branch -D XXX (borra la rama)
+git checkout XXX (para cambiarme de rama)
+git checkout “hash number” (volver a una version anterior. OJO QUE DESAPARECE TODO LO POSTERIOR A ESE ESTADIO)
+git reset --hard <hash_del_commit_deseado>: --hard significa que se descartarán todos los cambios y commits posteriores.
+git checkout -b XXX (para crear una nueva rama y además cambiarme a esa rama creada)
+git merge XXX(posicionado en la rama en la cual quiero que se fusione -siempre en el master- otra rama a la cual debo llamar)
+
+——————
+echo "# prueba" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Ignacio-Visciglia/prueba.git
+git remote set-url origin https://git-repo/new-repository.git  (PARA CAMBIAR EL URL DEL REPO)
+git push -u origin main
+-----------------

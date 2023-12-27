@@ -1,0 +1,30 @@
+{
+  "name": "clase1-node",
+  "version": "1.0.0",
+  "description": "Practica personal de la clase 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ignacio-Visciglia/PracticaClase1CursoNode.git"
+  },
+  "keywords": [
+    "curso",
+    "node",
+    "nodejs"
+  ],
+  "author": "Ignacio Visciglia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ignacio-Visciglia/PracticaClase1CursoNode/issues"
+  },
+  "homepage": "https://github.com/Ignacio-Visciglia/PracticaClase1CursoNode#readme",
+  "dependencies": {
+    "picocolors": "1.0.0"
+  },
+  "devDependencies": {
+    "standard": "17.1.0"
+  }
+}

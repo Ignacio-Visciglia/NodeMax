@@ -1,0 +1,20 @@
+{
+  "name": "clase2",
+  "version": "1.0.0",
+  "description": "Protocolo HTTP, servidor, metodos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev1": "nodemon 1.http.js",
+    "dev2": "nodemon 2.routing.js",
+    "dev3": "node --watch 3.express.js"
+  },
+  "author": "Ignacio Visciglia",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "3.0.1"
+  },
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}

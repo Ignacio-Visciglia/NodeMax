@@ -1,0 +1,5 @@
+Express es un framework
+
+instalacion:
+
+npm install express -E (modo exacto, sin caret)

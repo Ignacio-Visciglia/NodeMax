@@ -1,0 +1,44 @@
+Qué es NPM?
+
+Node Package Manager es un administrador de paquetes de Node.js (línea de comandos) y a su vez también es el registro de paquetes de código abierto más grande que existe a la actualidad y fue creado unos años después que Node.js
+
+Para crear un proyecto Node.js:
+
+-npm init ---> Esto crea un package.json donde se describen:
+
+-Package Name
+-Description
+-Version
+-Entry Point: es el punto de entrada del proyecto, por ejemplo: si creamos una API, el entry point es el archivo que al ejecutar con node levanta toda la API.
+-Test Command
+-Git Repository
+-Keywords
+-Author
+-License
+-Dependencias
+-Scripts
+
+Si no quiero llenar el package.json --> npm init -y o npm init --yes  (todo por defecto)
+
+Hay dos tipos de dependencias en Node.js
+
+De producción: nuestra app la necesita para funcionar
+
+De desarrollo: son igual de importantes pero se usan para desarrollo. Ej: standard, que es un tipo de codigo JS sin ; y además linta el código(Linters help spot and eventually fix issues and problems in our code)
+
+- npm install standard -D  o npm install standard --development.
+Al especificar -D o --development, la dependencia queda separada en el package.json en el devDependencies
+
+Por qué es importante separarlas? Porque las dependencias pesan y cuestan tiempo en ser instaladas y cuando uno quiere desplegar un servicio, instalar dependencias de desarrollo no aportan nada, no tiene sentido ser instalada. Distinto es si lo necesitás local, pero en producción no será necesaria
+
+Al instalar standard, debemos agregar en el package.json:
+"eslintConfig":{
+    "extends": "standard"
+}
+Además para que lo arregle automáticamente, necesitamos instalar la extension ESlint en VS Code y en el settings.json de la config del vs code:
+
+Dentro de [javascript] "editor.formatOnSave": true --> para asegurarse que de está lintando correctamente
+y fuera:
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint":true 
+}  --> automáticamente cuando guardo el fichero, se arreglan todos los errores de linter que tenga
